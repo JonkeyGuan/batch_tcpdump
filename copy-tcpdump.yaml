@@ -1,0 +1,11 @@
+- name: copy tcpdump binary
+  hosts: all
+  remote_user: core
+  become: yes
+  become_method: sudo
+  tasks:
+  - name: copy tcpdump
+    copy:
+      src: /usr/sbin/tcpdump
+      dest: /usr/local/bin/tcpdump 
+      mode: '0755'

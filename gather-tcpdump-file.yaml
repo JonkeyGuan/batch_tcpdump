@@ -1,0 +1,11 @@
+- name: gather tcpdump file
+  hosts: all
+  remote_user: core
+  become: yes
+  become_method: sudo
+  tasks:
+  - name: gather tcpdump file
+    fetch: 
+      src: /tmp/{{ ansible_hostname }}.pcap 
+      dest: /tmp/
+      flat: yes

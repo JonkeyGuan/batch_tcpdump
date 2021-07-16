@@ -1,0 +1,10 @@
+- name: create tcpdump user
+  hosts: all
+  remote_user: core
+  become: yes
+  become_method: sudo
+  tasks:
+  - name: create user
+    user:
+     name: tcpdump
+     state: present

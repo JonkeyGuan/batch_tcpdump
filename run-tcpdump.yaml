@@ -1,0 +1,10 @@
+- name: run tcpdump
+  hosts: all
+  remote_user: core
+  become: yes
+  become_method: sudo
+  tasks:
+  - name: run tcpdump
+    command: /usr/local/bin/tcpdump -nn -i any -w /tmp/{{ ansible_hostname }}.pcap
+    async: 60
+    poll: 0

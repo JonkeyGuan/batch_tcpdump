@@ -1,0 +1,10 @@
+- name: delete tcpdump binary
+  hosts: all
+  remote_user: core
+  become: yes
+  become_method: sudo
+  tasks:
+  - name: delete tcpdump
+    file: 
+      path: /usr/local/bin/tcpdump
+      state: absent
